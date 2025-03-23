@@ -1,7 +1,9 @@
+import { MainDashboard } from '@/widgets/main-dashboard/ui';
+
 const HomePage = () => {
   return (
     <div className="font-space-grotesk z-50">
-      <h1>Home page</h1>
+      <MainDashboard />
     </div>
   );
 };

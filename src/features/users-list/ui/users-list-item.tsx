@@ -1,13 +1,12 @@
 'use client';
 
 import { type IUser } from '@/shared/lib/types';
+import UserAvatar from '@/shared/ui/user-avatar';
 import { UserStatusIndicator } from '@/shared/ui/user-status-indicator';
 import { cn } from '@/shared/ui/utils';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { FC } from 'react';
-
-import UserAvatar from './user-avatar';
 
 interface Props {
   user: IUser;

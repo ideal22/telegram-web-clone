@@ -10,4 +10,8 @@ export const authValidationSchemas = {
       .min(6, { message: 'Your one-time password must be 6 characters.' }),
     email: z.string().email(),
   }),
+  messageSchema: z.object({
+    text: z.string().min(1, { message: 'Message cannot be empty.' }),
+    image: z.string().optional(),
+  }),
 };

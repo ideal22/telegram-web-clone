@@ -1,9 +1,9 @@
 import { ThemeProvider } from '@/entities/providers/theme-provider';
-import { Sidebar } from '@/widgets/sidebar/ui';
 import type { Metadata } from 'next';
 import { Space_Grotesk } from 'next/font/google';
 import './globals.css';
 import Script from 'next/script';
+import { FC } from 'react';
 
 const spaceGrotesk = Space_Grotesk({
   variable: '--font-space-grotesk',
@@ -16,11 +16,11 @@ export const metadata: Metadata = {
   description: 'Telegram Web Demo App',
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
+interface Props {
   children: React.ReactNode;
-}>) {
+}
+
+const RootLayout: FC<Props> = async ({ children }) => {
   return (
     <html lang="en" suppressContentEditableWarning suppressHydrationWarning>
       <head>
@@ -36,17 +36,11 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="flex h-screen">
-            {/* Sidebar */}
-            <aside className="fixed inset-0 z-50 h-screen w-80 border-r">
-              <Sidebar />
-            </aside>
-
-            {/* Main Content Area */}
-            <main className="ml-80 w-full flex-1 p-6">{children}</main>
-          </div>
+          {children}
         </ThemeProvider>
       </body>
     </html>
   );
-}
+};
+
+export default RootLayout;
